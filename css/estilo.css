@@ -328,6 +328,11 @@ html de la tarjeta vertical
   justify-content: center;
 }
 
+.rsxTexto {
+  display: none;
+  height: 120px;
+}
+
 .contenedorHeader {
   width: inherit;
   padding-right: 0px;
@@ -663,6 +668,14 @@ footer img {
     grid-template-columns: 100%;
     grid-template-rows: auto;
   }
+
+  .minis-d {
+    display: none;
+  }
+
+  .rsxTexto {
+    display: flex;
+  }
 }
 @media (max-width: 768px) {
   .grid {
@@ -729,9 +742,6 @@ footer img {
     padding: 0px 15px;
     margin: 0px;
     margin-top: 15px;
-  }
-  main .titReg {
-    display: none;
   }
 
   .logo {

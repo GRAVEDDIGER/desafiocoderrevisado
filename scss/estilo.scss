@@ -33,7 +33,11 @@
     text-align: center;
     justify-content: center;
 }
+.rsxTexto{
+    display:none;
+    height: 120px;
 
+}
 .contenedorHeader {
     width: inherit;
     padding-right: 0px;
@@ -392,6 +396,11 @@ footer img {
         grid-template-columns: 100%;
         grid-template-rows: auto;
     }
+
+    .minis-d{display: none;}
+    .rsxTexto{
+        display: flex;
+    }
 }
 
 @include s {
@@ -464,9 +473,7 @@ footer img {
         margin: 0px;
         margin-top: 15px;
 
-        .titReg {
-            display: none;
-        }
+
     }
 
     .logo {
