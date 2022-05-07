@@ -14,13 +14,12 @@
 @include hamburguesa($fondoPrincipal,
     $colorAcentos,
     $colorSecundario,
-    l,
+    d,
     2px,
     $menuWidth,
     0px,
     0,
-    3,
-    22px);
+    3);
 
 @include btn_solid(menu, $fondoPrincipal, 2px) {
     width: 100%;
@@ -35,6 +34,7 @@
     text-align: center;
     justify-content: center;
 }
+.contenedorHeader{width: inherit;}
 
 %btn_txt {
     text-decoration: none;
@@ -318,7 +318,10 @@ footer img {
 .ddm {
     padding: 0px !important;
 }
+.magia{
 
+
+display: none !important;}
 //////////////////////////////////////////
 //                 MEDIA QUERYS         //
 //DEFINICIONES DE MQ EN _VARIABLE       //
@@ -342,6 +345,7 @@ footer img {
 }
 
 @include md {
+    
     .imgCentro {
         width: 50%;
     }
@@ -375,7 +379,14 @@ footer img {
         grid-template-rows: auto 150px;
 
     }
-
+    .magia{
+    display: flex !important;
+}
+        .imgLogoDer{visibility: hidden;
+        width: 0px;}
+        .magia2{visibility: hidden;
+        width: 0px;
+    display: none;}
     .intraForm {
         width: 100%;
 

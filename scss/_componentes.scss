@@ -178,27 +178,28 @@
     top: 0;
     left: 0;
 }
-
-@mixin hamburguesa($bcolor, $fcolor, $bMnu, $direccion, $borderTk, $ancho, $pyItem, $pxitem, $marginItem, $fontsize) {
+@mixin hamburguesa($bcolor, $fcolor, $bMnu, $direccion, $borderTk, $ancho, $pyItem, $pxitem, $marginItem) {
 
     .menu-wrap {
         position: relative; //cambio
-        left: 0;
-        background-image: "img/regionlogo.png";
+        // right: 100px;
+        // text-align: center;
+        // margin: 0 auto;
+        // width: 100%;
+        width: 60px;
+        height: 60px;
         z-index: 1;
         display: flex;
         flex-direction: row;
         justify-content: center;
-        @content;
 
         .toggler {
             @extend %mnu;
-            z-index: -5;
-            // cursor: pointer;
-            width: 150px;
-            height: 120px;
+            z-index: 2;
+            cursor: pointer;
+            width: 60px;
+            height: 60px;
             opacity: 0;
-
         }
 
         .toggler:checked~.menu {
@@ -216,16 +217,15 @@
         }
 
         .toggler:checked+.hamburger>div {
-            filter: sepia(1);
-            // transform: rotate(135deg);
+            transform: rotate(135deg);
 
         }
 
-        // .toggler:checked+.hamburger>div:before,
-        // .toggler:checked+.hamburger>div:after {
-        //     top: 0;
-        //     transform: rotate(90deg);
-        // }
+        .toggler:checked+.hamburger>div:before,
+        .toggler:checked+.hamburger>div:after {
+            top: 0;
+            transform: rotate(90deg);
+        }
 
 
 
@@ -233,84 +233,72 @@
             //contenedor de la hamburguesa
             @extend %mnu;
             z-index: 1;
-            width: 150px;
-            height: 120px;
+            width: 60px;
+            height: 60px;
             padding: 1rem;
-            // border: $bMnu solid 2px;   AGREGAR EL BORDE EN MEDIA QUERY
+            background: $bcolor;
+            border: $bMnu solid 2px;
             box-shadow: 3px 3px 40px $bcolor;
             border-radius: 15%;
             display: flex;
             align-items: center;
             justify-content: center;
 
-            @media (max-width:576px) {
-
-                border: $colorSecundario solid 2px;
-
-            }
-
-            @media (max-width:768px) {
-
-                border: $colorSecundario solid 2px;
-
-            }
 
             div {
                 //linea central de la hamburguesa
                 position: relative;
                 flex: none;
                 width: 100%;
-                height: 100%;
+                height: 2px;
+                background: $fcolor;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 transition: all $tiempoCorto ease;
-                background-image: 'img/regionlogo.png';
-                z-index: 0; //modificacion
             }
 
             //crea las 3 lineas de la hamburguesa
-            // >div::after {
-            //     content: '';
-            //     position: absolute;
-            //     z-index: 1;
-            //     width: 100%;
-            //     height: 2px;
-            //     background: inherit;
-            //     top: 10px;
-            // }
+            >div::after {
+                content: '';
+                position: absolute;
+                z-index: 1;
+                width: 100%;
+                height: 2px;
+                background: inherit;
+                top: 10px;
+            }
 
-            // >div::before {
-            //     content: '';
-            //     position: absolute;
-            //     z-index: 1;
-            //     top: -10px;
-            //     width: 100%;
-            //     height: 100%;
-            // }
+            >div::before {
+                content: '';
+                position: absolute;
+                z-index: 1;
+                top: -10px;
+                width: 100%;
+                height: 2px;
+                background: inherit;
+            }
         }
 
 
         .menu {
             position: absolute; //cambio
 
-            @if $direccion==r {
+            @if $direccion==d {
                 right: calc(100% - 60px);
             }
 
             @else {
                 left: 100%;
-                float: left;
             }
 
             border: $bcolor solid $borderTk;
             border-radius: 3%;
             box-shadow: 5px 5px 15px $bMnu;
-            transform: translatey(150px);
-            top: 0px;
+            transform: translatey(60px);
+            top: 0;
             padding: 0;
             margin: 0;
-
 
             // left: 0;
             @if $ancho==a {
@@ -333,9 +321,11 @@
             >div {
                 // define un fondo de pantalla para todo el menu
                 background: $bMnu;
+                // border-radius: 50%;
                 width: 100%; ///  vh
                 height: auto; // vh
                 display: flex;
+                flex: none;
                 align-items: flex-start;
                 justify-content: flex-start;
                 transform: scale(0);
@@ -351,22 +341,21 @@
                     opacity: 0;
                     transition: opacity $tiempoCorto ease;
                     width: 100%;
-
-                    >ul {
-                        margin: 0;
-                        padding: 0;
-                        width: 100%;
-                    }
-
+                    color: $fcolor;
+                ul{
+                    padding: 0;
+                    margin: 0;
+                }
                     >ul>li {
                         //item
 
                         margin: $marginItem;
                         list-style: none;
-                        color: setcolor($bcolor); //revisar
-                        font-size: size($fontsize);
-                        width: 100%;
-                        // padding: $pyItem $pxitem;
+                        color: $fcolor;//revisar
+                        font-size: 1.5rem;
+                        width: 100% !important;
+                        padding: 0;
+                        padding: $pyItem $pxitem;
 
                         >a {
                             //propiedades del link
@@ -381,44 +370,266 @@
                 }
             }
         }
-
-        @include s {
-
-            .menu {
-                visibility: visible;
-                transform: translatey(120px);
-                min-width: 350px;
-
-                >div {
-                    transform: scale(1);
-
-                    >div {
-                        opacity: 1;
-                    }
-                }
-            }
-
-            .toggler {
-                z-index: 5;
-            }
-
-            .toggler:checked~.menu {
-                visibility: hidden;
-
-                >div {
-                    transform: scale(0);
-                    transition-duration: $tiempoMedio;
-
-                    >div {
-                        opacity: 0;
-                        transition: opacity $tiempoCorto ease 0.4s;
-                    }
-                }
-            }
-        }
     }
-
 }
+// @mixin hamburguesa($bcolor, $fcolor, $bMnu, $direccion, $borderTk, $ancho, $pyItem, $pxitem, $marginItem, $fontsize) {
+
+//     .menu-wrap {
+//         position: relative; //cambio
+//         width: 60px;
+//         height: 60px;
+//         margin: 0;
+//         padding: 0;
+//         margin-right: 25px;
+//         background-image: "img/regionlogo.png";
+//         z-index: 1;
+//         display: flex;
+//         flex-direction: row;
+//         justify-content: center;
+//         @content;
+
+//         .toggler {
+//             @extend %mnu;
+//             z-index: -5;
+//             // cursor: pointer;
+//             width: 50px;
+//             height: 50px;
+//             opacity: 0;
+
+//         }
+
+//         .toggler:checked~.menu {
+//             visibility: visible;
+
+//             >div {
+//                 transform: scale(1);
+//                 transition-duration: $tiempoMedio;
+
+//                 >div {
+//                     opacity: 1;
+//                     transition: opacity $tiempoCorto ease 0.4s;
+//                 }
+//             }
+//         }
+
+//         .toggler:checked+.hamburger>div {
+//             transform: rotate(0deg);
+
+//         }
+
+//          .toggler:checked+.hamburger>div:before,
+//          .toggler:checked+.hamburger>div:after {
+//              transform: rotate(0deg);
+//              background-color: $fcolor;
+//          }
+//          .toggler:checked+.hamburger>div:after{top:10px;}
+//          .toggler:checked+.hamburger>div::before{top:-10px;}
+
+
+//         .hamburger {
+//             //contenedor de la hamburguesa
+//             @extend %mnu;
+//             background-color: $bcolor;
+//             z-index: 1;
+//             width: 50px ;
+//             height: 50px;
+//             margin:3px;
+//             padding: 3px;
+//             //padding: 1rem;
+//             // border: $bMnu solid 2px;   AGREGAR EL BORDE EN MEDIA QUERY
+//             box-shadow: 3px 3px 40px $bcolor;
+//             border-radius: 15%;
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             @media (max-width:576px) {
+//                 visibility: visible;
+//                 border: $colorSecundario solid 2px;
+
+//             }
+
+//             @media (max-width:768px) {
+//                 visibility: visible;
+//                 border: $colorSecundario solid 2px;
+
+//             }
+            
+//             div {
+//                 //linea central de la hamburguesa
+//                 opacity: 1;
+//                 visibility: visible;
+//                 transform: rotate(135deg);
+//                 position: relative;
+//                 flex: none;
+//                 background-color: $fcolor;
+//                 width: 95%;
+//                 height: 3px;
+//                 display: flex;
+//                 align-items: center;
+//                 justify-content: center;
+//                 transition: all $tiempoCorto ease;
+//                 //background-image: 'img/regionlogo.png';
+//                 z-index: 6; //modificacion
+//             }
+
+            
+//              >div::after {
+//                 transform: rotate(90deg);
+//                 content: '';
+//                  position: absolute;
+//                  z-index: 1;
+//                  top:0px;
+//                  width: 100%;
+//                  height: 100%;
+//                 background-color: $fcolor;
+//                  transform: rotate(90deg);
+//              }
+
+//              >div::before {
+//                 content: '';
+//                  position: absolute;
+//                  background-color: $fcolor;
+//                  color: $fcolor;
+//                  z-index: 1;
+//                  top: 0px;
+//                  width: 100%;
+//                  height: 100%;
+//                  transform: rotate(90deg); 
+
+//              }
+//         }
+
+
+//         .menu {
+//             position: absolute; //cambio
+
+//             @if $direccion==r {
+//                 right: calc(100% - 60px);
+//             }
+
+//             @else {
+//                 left: 100%;
+//                 float: left;
+//             }
+
+//             border: $bcolor solid $borderTk;
+//             border-radius: 3%;
+//             box-shadow: 5px 5px 15px $bMnu;
+//             transform: translate(calc(-98vw + #{$ancho}),120px);
+            
+//             top: 0px;
+//             padding: 0;
+//             margin: 0;
+
+
+//             // left: 0;
+//             @if $ancho==a {
+//                 width: auto;
+//             }
+
+//             @else {
+//                 width: $ancho;
+//             }
+
+//             height: auto; //100
+//             visibility: hidden;
+//             overflow: visible;
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+
+
+
+//             >div {
+//                 // define un fondo de pantalla para todo el menu
+//                 background: $bMnu;
+//                 width: 100%; ///  vh
+//                 height: auto; // vh
+//                 display: flex;
+//                 align-items: flex-start;
+//                 justify-content: flex-start;
+//                 transform: scale(0);
+//                 transition: all $tiempoCorto ease;
+
+
+//                 >div {
+//                     //CONTENEDOR DEL MENU
+//                     margin: 3px;
+//                     text-align: center;
+//                     max-width: 90vw;
+//                     max-height: 100vh;
+//                     opacity: 0;
+//                     transition: opacity $tiempoCorto ease;
+//                     width: 100%;
+
+//                     >ul {
+//                         margin: 0;
+//                         padding: 0;
+//                         width: 100%;
+//                     }
+
+//                     >ul>li {
+//                         //item
+
+//                         margin: $marginItem;
+//                         list-style: none;
+//                         color: setcolor($bcolor); //revisar
+//                         font-size: size($fontsize);
+//                         width: 100%;
+//                         // padding: $pyItem $pxitem;
+
+//                         >a {
+//                             //propiedades del link
+//                             color: inherit;
+//                             text-decoration: none;
+//                             transition: color $tiempoCorto ease;
+//                             text-align: center;
+//                             margin: 0 auto;
+
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+
+// /*         @include s {
+
+//             .menu {
+//                 visibility: visible;
+//                 transform: translatey(120px);
+//                 transform: translateX(100vw);
+//                 min-width: 350px;
+
+//                 >div {
+//                     transform: scale(1);
+
+//                     >div {
+//                         opacity: 1;
+//                     }
+//                 }
+//             }
+
+//             .toggler {
+//                 z-index: 5;
+//             }
+
+//             .toggler:checked~.menu {
+//                 visibility: hidden;
+
+//                 >div {
+//                     transform: scale(0);
+//                     transition-duration: $tiempoMedio;
+
+//                     >div {
+//                         opacity: 0;
+//                         transition: opacity $tiempoCorto ease 0.4s;
+//                     }
+//                 }
+//             }
+//         } */
+//     }
+
+// }
 
 /*
 PARAMETROS:
