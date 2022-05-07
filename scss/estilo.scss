@@ -34,7 +34,12 @@
     text-align: center;
     justify-content: center;
 }
-.contenedorHeader{width: inherit;padding-right: 31px;padding-left: 15px;}
+
+.contenedorHeader {
+    width: inherit;
+    padding-right: 31px;
+    padding-left: 15px;
+}
 
 %btn_txt {
     text-decoration: none;
@@ -88,14 +93,23 @@ main>article>h4 {
 
 aside {
     grid-area: menu;
+    padding-top: 1.5rem;
     height: 100vh;
     background-color: $fondoPrincipal;
     width: $menuWidth;
+
+    ul {
+        padding-left: 1.5rem;
+    }
+
+    a {
+        text-decoration: none;
+    }
 }
 
 header {
     grid-area: cabeza;
-    
+
 }
 
 %margin1P {
@@ -319,10 +333,13 @@ footer img {
 .ddm {
     padding: 0px !important;
 }
-.magia{
+
+.magia {
 
 
-display: none !important;}
+    display: none !important;
+}
+
 //////////////////////////////////////////
 //                 MEDIA QUERYS         //
 //DEFINICIONES DE MQ EN _VARIABLE       //
@@ -346,7 +363,7 @@ display: none !important;}
 }
 
 @include md {
-    
+
     .imgCentro {
         width: 50%;
     }
@@ -380,14 +397,22 @@ display: none !important;}
         grid-template-rows: auto 150px;
 
     }
-    .magia{
-    display: flex !important;
-}
-        .imgLogoDer{visibility: hidden;
-        width: 0px;}
-        .magia2{visibility: hidden;
+
+    .magia {
+        display: flex !important;
+    }
+
+    .imgLogoDer {
+        visibility: hidden;
         width: 0px;
-    display: none;}
+    }
+
+    .magia2 {
+        visibility: hidden;
+        width: 0px;
+        display: none;
+    }
+
     .intraForm {
         width: 100%;
 
@@ -414,7 +439,12 @@ display: none !important;}
     }
 
     aside {
+        dsiplay: none;
         width: 0;
+
+        ul {
+            display: none;
+        }
     }
 
     body {

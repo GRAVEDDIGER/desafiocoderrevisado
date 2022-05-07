@@ -371,9 +371,16 @@ main > article > h4 {
 
 aside {
   grid-area: menu;
+  padding-top: 1.5rem;
   height: 100vh;
   background-color: white;
   width: 25vw;
+}
+aside ul {
+  padding-left: 1.5rem;
+}
+aside a {
+  text-decoration: none;
 }
 
 header {
@@ -687,7 +694,11 @@ footer img {
   }
 
   aside {
+    dsiplay: none;
     width: 0;
+  }
+  aside ul {
+    display: none;
   }
 
   body {
