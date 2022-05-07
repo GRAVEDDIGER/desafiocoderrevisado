@@ -34,7 +34,7 @@
     text-align: center;
     justify-content: center;
 }
-.contenedorHeader{width: inherit;}
+.contenedorHeader{width: inherit;padding-right: 31px;padding-left: 15px;}
 
 %btn_txt {
     text-decoration: none;
@@ -95,6 +95,7 @@ aside {
 
 header {
     grid-area: cabeza;
+    
 }
 
 %margin1P {

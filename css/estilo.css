@@ -320,6 +320,8 @@ html de la tarjeta vertical
 
 .contenedorHeader {
   width: inherit;
+  padding-right: 31px;
+  padding-left: 15px;
 }
 
 .col2 > a, .col1 > a {
