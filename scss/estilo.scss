@@ -25,9 +25,8 @@
     width: 100%;
 }
 
-@include btne_solid(ile, $ile, 2px);
-@include my(15px);
-
+@include btne_solid(ile, $ile, 2px){border:0px;};
+.btne_ile:hover{color:white;}
 .ile {
     color: #fff;
     text-decoration: none;
@@ -37,7 +36,7 @@
 
 .contenedorHeader {
     width: inherit;
-    padding-right: 31px;
+    padding-right: 0px;
     padding-left: 15px;
 }
 
@@ -121,6 +120,10 @@ header {
     flex-direction: column;
     flex-wrap: nowrap;
 }
+minis-d{display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+}
 
 main {
     grid-area: contenido;
@@ -147,7 +150,9 @@ main {
     justify-content: space-around
 }
 
-@include btne_solid(descargas, $fondoPrincipal, 2px);
+@include btne_solid(descargas, $fondoPrincipal, 2px){
+    margin-bottom: 15px;
+};
 
 .col1 {
     grid-area: c1;
@@ -185,7 +190,7 @@ main {
 
 .cabeza {
     @extend %flex-row;
-    width: 100vw;
+    width: 100%;
 
 }
 
@@ -490,7 +495,7 @@ footer img {
     .imgLogoDer {
         margin-right: 15px !important;
     }
-
+.contenedorHeader{padding: 0 15px;}
 
 }
 
@@ -524,6 +529,10 @@ footer img {
 }
 
 @include xxs {
+    
+    .minis-d{display:none;}
+    .titReg{display: flex !important;
+    justify-content: center;}
     footer {
         display: flex;
         flex-flow: column nowrap;

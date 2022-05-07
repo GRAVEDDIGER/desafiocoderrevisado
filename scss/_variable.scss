@@ -167,13 +167,13 @@ $tiempoLargo:1.5s;
 @mixin my ($m) {
     @if ($m==a) {
         .my_#{$m} {
-            margin: auto;
+            margin: auto inherit;
         }
     }
 
     @else {
         .my_#{$m} {
-            margin: $m;
+            margin: $m inherit;
         }
     }
 }

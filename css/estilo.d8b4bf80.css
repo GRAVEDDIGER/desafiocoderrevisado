@@ -318,7 +318,8 @@ main > article > h4 {
 .grid {
   display: flex;
   float: right;
-  grid-template-areas: "menu contenido" "pie pie";
+  grid-template-areas: "menu contenido"
+ "pie pie";
   grid-template-columns: 25vw 65vw;
   grid-template-rows: auto 150px; }
 
@@ -530,13 +531,15 @@ footer img {
     width: 100%;
     height: calc(60vw * 2 / 3); }
   .gridDescarga {
-    grid-template-areas: "c1" "c2";
+    grid-template-areas: "c1"
+ "c2";
     grid-template-columns: 100%;
     grid-template-rows: auto; } }
 
 @media (max-width: 768px) {
   .grid {
-    grid-template-areas: "contenido" "pie";
+    grid-template-areas: "contenido"
+ "pie";
     grid-template-columns: 100%;
     grid-template-rows: auto 150px; }
   .intraForm {
@@ -602,7 +605,7 @@ footer img {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    align-items: center; } }
+    align-items: center; } estilo.css
 
 
 /*# sourceMappingURL=/maps/estilo.d8b4bf80.css.map */
