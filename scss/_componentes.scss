@@ -178,6 +178,7 @@
     top: 0;
     left: 0;
 }
+
 @mixin hamburguesa($bcolor, $fcolor, $bMnu, $direccion, $borderTk, $ancho, $pyItem, $pxitem, $marginItem) {
 
     .menu-wrap {
@@ -196,6 +197,8 @@
             width: 60px;
             height: 60px;
             opacity: 0;
+
+
         }
 
         .toggler:checked~.menu {
@@ -229,7 +232,7 @@
             //contenedor de la hamburguesa
             @extend %mnu;
             z-index: 1;
-            width: 60px ;
+            width: 60px;
             height: 60px;
             padding: 1rem;
             background: $bcolor;
@@ -240,6 +243,10 @@
             align-items: center;
             justify-content: center;
 
+            &:hover {
+                box-shadow: 3px 3px 15px $fcolor;
+                background-color: darken($bcolor, 30%);
+            }
 
             div {
                 //linea central de la hamburguesa
@@ -337,16 +344,18 @@
                     transition: opacity $tiempoCorto ease;
                     width: 100%;
                     color: $fcolor;
-                ul{
-                    padding: 0;
-                    margin: 0;
-                }
+
+                    ul {
+                        padding: 0;
+                        margin: 0;
+                    }
+
                     >ul>li {
                         //item
 
                         margin: $marginItem;
                         list-style: none;
-                        color: $fcolor;//revisar
+                        color: $fcolor; //revisar
                         font-size: 1.5rem;
                         width: 100% !important;
                         padding: 0;
@@ -363,10 +372,16 @@
                     }
                 }
             }
-            @include s{width: 50vw}
-            @include xs{width: 70vw}
+
+            @include s {
+                width: 50vw
+            }
+
+            @include xs {
+                width: 70vw
+            }
         }
-   
+
     }
 }
 
