@@ -391,7 +391,7 @@ main > article > h4 {
 footer, header, .lateral, .grid {
   display: flex;
   justify-content: center;
-  height: 99%;
+  height: 100%;
   width: 100%;
   border: #dad5d5 solid 2px;
 }
