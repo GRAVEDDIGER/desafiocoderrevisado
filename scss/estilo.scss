@@ -38,8 +38,7 @@
 .ile {
     color: #fff;
     text-decoration: none;
-    text-align: center;
-    justify-content: center;
+    @extend %centroabs;
 }
 
 .rsxTexto {
@@ -58,8 +57,7 @@
     text-decoration: none;
     text-align: center;
     width: 100%;
-    justify-content: center;
-    align-items: center;
+    @extend %centroabs;
 }
 
 %flex-row {
@@ -74,11 +72,9 @@ main>article>h4 {
 }
 
 .intraForm {
-    display: flex;
-    flex-direction: column;
+    @extend %flex-col;
     flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
+    @extend %centroabs;
     width: 100%;
 
     >form {
@@ -123,21 +119,18 @@ main>article>h4 {
     box-shadow: 3px 0px 15px $colorSecundario;
 
     >div {
-        justify-content: center;
+
         width: 100%;
-        align-items: center;
+        @extend %centroabs;
 
         ul {
-            display: flex;
-            flex-direction: column;
+            @extend %flex-col;
             padding: 0;
-            justify-content: center;
-            align-items: center;
+            @extend %centroabs;
         }
 
         li {
-            justify-content: center;
-            align-items: center;
+            @extend %centroabs;
             width: 100%;
             font-size: 22px;
         }
@@ -161,11 +154,24 @@ aside {
 }
 
 header {
+    display: flex;
     grid-area: cabeza;
+    width: 100%;
     @extend %recuadros;
     box-shadow: 3px 0px 15px $colorSecundario;
-
     z-index: 2;
+
+    >.contenedorHeader {
+        @extend %fxrow;
+        justify-content: space-between;
+
+        .minis-d {
+            @extend %flex-col;
+            text-align: center;
+            @extend %centroabs;
+        }
+
+    }
 
 }
 
@@ -193,6 +199,10 @@ main {
     width: 100%;
     height: 100%;
 
+    h3 {
+        text-align: center;
+        margin-top: 2rem;
+    }
 
 
     >article {
@@ -223,7 +233,6 @@ main {
 .col1 {
     grid-area: c1;
     margin-top: 1rem;
-    // width: 100%;
     @extend %flex-col;
 
     >a {
@@ -234,7 +243,6 @@ main {
 .col2 {
     margin-top: 1rem;
     grid-area: c2;
-    // width: 100%;
     @extend %flex-col;
 
     >a {
@@ -336,6 +344,7 @@ h2 {
 .imgCentro {
     width: 40%;
     border: $colorSecundario solid 4px;
+    float: right;
 }
 
 .iconos {
@@ -466,8 +475,10 @@ footer img {
         grid-template-rows: auto;
     }
 
-    .minis-d {
-        display: none;
+    header {
+        .minis-d {
+            display: none !important;
+        }
     }
 
     .rsxTexto {
@@ -565,22 +576,33 @@ footer img {
     }
 
     .imgLogo {
-        margin: 010;
+        margin: 10px;
         padding: 0;
         top: 0;
         left: 0;
     }
 
-    .minis-d>h2 {
-        display: none;
-    }
 
     .imgLogoDer {
         margin-right: 15px !important;
     }
 
     .contenedorHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         padding: 0 15px;
+        width: 100%;
+
+        >a {
+            justify-content: flex-start;
+
+        }
+
+        >div {
+            text-align: center;
+        }
     }
 
 }

@@ -1,8 +1,28 @@
 @charset "UTF-8";
+header > .contenedorHeader .minis-d, .lateral > div li, .lateral > div ul, .lateral > div, .intraForm, .col2 > a, .col1 > a, .ile {
+  justify-content: center;
+  align-items: center;
+}
+
+header > .contenedorHeader {
+  display: flex;
+  flex-direction: row;
+}
+
 /* funcion que determina el tamaño de la fuente entre s m l xl y xxl*/
 /*                                   MARGIN                           */
 /*                                               PADDING                                */
 /*COMPONENTES PRE DISEñADOS*/
+header > .contenedorHeader .minis-d, .lateral > div li, .lateral > div ul, .lateral > div, .intraForm, .col2 > a, .col1 > a, .ile {
+  justify-content: center;
+  align-items: center;
+}
+
+header > .contenedorHeader {
+  display: flex;
+  flex-direction: row;
+}
+
 /* funcion que determina el tamaño de la fuente entre s m l xl y xxl*/
 /*                                   MARGIN                           */
 /*                                               PADDING                                */
@@ -328,8 +348,6 @@ html de la tarjeta vertical
 .ile {
   color: #fff;
   text-decoration: none;
-  text-align: center;
-  justify-content: center;
 }
 
 .rsxTexto {
@@ -347,8 +365,6 @@ html de la tarjeta vertical
   text-decoration: none;
   text-align: center;
   width: 100%;
-  justify-content: center;
-  align-items: center;
 }
 
 footer, .cabeza {
@@ -362,11 +378,7 @@ main > article > h4 {
 }
 
 .intraForm {
-  display: flex;
-  flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
   width: 100%;
 }
 .intraForm > form {
@@ -405,20 +417,12 @@ footer, header, .lateral, .grid {
   box-shadow: 3px 0px 15px #dad5d5;
 }
 .lateral > div {
-  justify-content: center;
   width: 100%;
-  align-items: center;
 }
 .lateral > div ul {
-  display: flex;
-  flex-direction: column;
   padding: 0;
-  justify-content: center;
-  align-items: center;
 }
 .lateral > div li {
-  justify-content: center;
-  align-items: center;
   width: 100%;
   font-size: 22px;
 }
@@ -437,16 +441,24 @@ aside a {
 }
 
 header {
+  display: flex;
   grid-area: cabeza;
+  width: 100%;
   box-shadow: 3px 0px 15px #dad5d5;
   z-index: 2;
+}
+header > .contenedorHeader {
+  justify-content: space-between;
+}
+header > .contenedorHeader .minis-d {
+  text-align: center;
 }
 
 main {
   margin: 0 1.5rem;
 }
 
-.mapacentro, .col2, .col1, main, .intraForm > form {
+.mapacentro, .col2, .col1, main, .intraForm, .intraForm > form, .lateral > div ul, header > .contenedorHeader .minis-d {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -463,6 +475,10 @@ main {
   width: calc(95vw - 25vw);
   width: 100%;
   height: 100%;
+}
+main h3 {
+  text-align: center;
+  margin-top: 2rem;
 }
 main > article {
   display: flow-root;
@@ -602,6 +618,7 @@ h2 {
 .imgCentro {
   width: 40%;
   border: #dad5d5 solid 4px;
+  float: right;
 }
 
 .iconos {
@@ -714,8 +731,8 @@ footer img {
     grid-template-rows: auto;
   }
 
-  .minis-d {
-    display: none;
+  header .minis-d {
+    display: none !important;
   }
 
   .rsxTexto {
@@ -804,14 +821,10 @@ footer img {
   }
 
   .imgLogo {
-    margin: 10;
+    margin: 10px;
     padding: 0;
     top: 0;
     left: 0;
-  }
-
-  .minis-d > h2 {
-    display: none;
   }
 
   .imgLogoDer {
@@ -819,7 +832,18 @@ footer img {
   }
 
   .contenedorHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     padding: 0 15px;
+    width: 100%;
+  }
+  .contenedorHeader > a {
+    justify-content: flex-start;
+  }
+  .contenedorHeader > div {
+    text-align: center;
   }
 }
 @media (max-width: 576px) {

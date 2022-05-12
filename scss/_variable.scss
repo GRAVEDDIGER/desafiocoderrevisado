@@ -3,14 +3,40 @@ $colorSecundario: #dad5d5;
 $colorAcentos: #11bfbf;
 $colorAcento2: #7d7d7d;
 $fondoPrincipal: #FFF;
-$ile:rgb(7, 174, 7);
-$fuente:"Montserrat";
-$fP: (regular:400, medium:500, bold:800);
-$fS:("xxl":32px, "xl":26px, "l":22px, "m":18px, "s":16px);
-$breakpoints:("xs":576px, "s":768px, "m":992px, "l":1200px, "xl":1400px);
-$tiempoCorto:0.4s;
-$tiempoMedio:0.7s;
-$tiempoLargo:1.5s;
+$ile: rgb(7, 174, 7);
+$fuente: "Montserrat";
+$fP: (
+    regular:400,
+    medium:500,
+    bold:800
+);
+$fS: (
+    "xxl":32px,
+    "xl":26px,
+    "l":22px,
+    "m":18px,
+    "s":16px
+);
+$breakpoints: (
+    "xs":576px,
+    "s":768px,
+    "m":992px,
+    "l":1200px,
+    "xl":1400px
+);
+$tiempoCorto: 0.4s;
+$tiempoMedio: 0.7s;
+$tiempoLargo: 1.5s;
+
+%centroabs {
+    justify-content: center;
+    align-items: center;
+}
+
+%fxrow {
+    display: flex;
+    flex-direction: row;
+}
 
 @function peso($peso) {
     /*funcion que determina el peso de las fuentes se pasa por parametro regular, medium o bold y reemplaza por el valor asigando arriba*/
